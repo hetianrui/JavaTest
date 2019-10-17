@@ -1,0 +1,66 @@
+栈 先进后出
+
+push 放入数据 压栈
+
+pop 删除数据 弹栈
+
+实现：
+链表可以实现
+LinkList 
+push/pop
+头插加头删
+
+顺序表也可以
+
+*   Stack（class）已经实现好的栈
+继承自Vector类 
+
+如何自己实现：
+利用一个顺序表实现
+
+class Stack｛
+private int【】array；
+private int size；
+
+public void push（）｛｝
+public void pop（）｛｝
+public int top（）｛｝
+public boolean isEmpty（）｛｝
+public int size（）｛｝
+
+｝
+
+栈的应用
+1.逆波兰表达式/后缀表达式的运算
+2.括号匹配
+3.迷宫暴力破解
+
+队列
+
+先进先出
+JAVA中的队列
+Queue（interface）   LinkList（class）
+Queue<String>=new LinkListList<>();
+LinkList<String>= new LinkList<>(); 
+术语: 
+队首/队尾
+front/rear
+
+操作：
+push/pop/front/rear/....
+
+自己实现：
+链表实现（单向链表） 记录第一个和最后一个结点
+头删当  pop
+尾插当  push
+
+用数组实现队列
+
+循环队列（基本条件无法区分空/满）
+
+
+
+
+
+
+
