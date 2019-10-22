@@ -1,0 +1,47 @@
+比较两个属性的内容是否相同用equles方法
+
+先覆写equles方法，再调用
+import java.lang.*;
+
+class Pokecard <T>{
+
+    private T name;
+
+    public T getName() {
+        return name;
+    }
+
+    public void setName(T name) {
+        this.name = name;
+    }
+
+    public boolean equles(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+     //返回obj对象能否被Pokecard类型的引用指向
+     //obj对象的类型是不是Pokecard类型的小类型
+        if (!(obj instanceof Pokecard)) {
+            return false;
+        }
+        Pokecard other = (Pokecard) obj;
+        return  this.name == other.name;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Pokecard<String> p = new Pokecard<>();
+        Pokecard<String> p1 = new Pokecard<>();
+        Pokecard<String> p2 = new Pokecard<>();
+        p.setName("花京院典明");
+        p1.setName("花京院典明");
+        p2.setName("抠脚焦太郎");
+        String x = p.getName();
+        String y = p1.getName();
+        System.out.println(p.equles(p1));
+        System.out.println(p1.equles(p2));
+    }
+}
