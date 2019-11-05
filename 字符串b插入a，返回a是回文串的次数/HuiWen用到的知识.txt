@@ -1,0 +1,5 @@
+解题思路：
+字符串b依次遍历插入a，当a等于a的逆置的时候，记录count，返回count。
+
+StringBuffer的对象不能用equals方法比较，因为SB没有复写equals方法，只能转换为toString方法去比较。
+或者复写equals方法。
