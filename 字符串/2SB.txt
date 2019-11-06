@@ -1,0 +1,35 @@
+两SB：为了方便进行字符串内容的修改
+StringBuffer
+字符串拼接使用append（）方法
+String-》StringBuffer
+a.通过StringBuffer的构造方法
+b.通过append（String str）：StringBuffer
+
+StringBuffer-》String：
+调用StringBuffer的toString（）
+独有方法：
+字符串反转：reverse()
+删除指定位置字符串：delete（int start，int end）
+在指定位置插入任意元素：insert（int offset，各种数据类型 b）
+
+StringBuilder
+面试题：
+请解释String与StringBuffer、StringBuilder的区别
+1.String常量内容不可修改、而StringBuffer与StringBuilder的内容可以修改
+2.StringBuffer使用同步处理，线程安全，性能较低
+StringBuilder使用异步处理，线程不安全，性能较高
+在普遍场景下，推荐使用StringBuilder，当String对象使用“+”进行字符串拼接时
+javac编译器会将String对象变为StringBuilder而后调用append（）来修改字符串内容，减少无用空间的开辟
+
+Object类
+Object类是所有类的父类，所有类默认继承Object类
+
+toString（）：取得对象信息
+System.out.println()系统输出输出对象时，默认会调用该对象的toString（）
+若自定义类需要进行内容的输出，需要覆写toString（）
+
+***************equals（）；比较两个对象内容***********
+Object类提供的equals默认比较两个对象的地址是否相同
+
+Object类可以接收所有引用类型，包括接口与数组
+Object类是参数的最高统一类型
