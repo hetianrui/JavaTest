@@ -1,0 +1,9 @@
+字符串拼接+：
+通过源码可以看出实现过程是把先在堆上使用StringBuffer（）开辟新空间，再用其append（）方法对字符串进行连接，
+最后调用toString返回。
+当用==比较时返回false，因为原字符串存储在常量池中。
+当用String s="a"+"b"时，再用==比较，返回true；
+
+concat（）：
+源码是通过copyOf（），和getChars（）；两个方法来拼接数组的。
+==比较返回false，
