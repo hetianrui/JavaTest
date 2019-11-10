@@ -10,7 +10,7 @@ public class Solution {
      list.get(0).add(1);
      list.get(1).add(1);//add是尾插
      list.get(1).add(1);
-     for( int i=2;i<numRows;i++){
+     for( int i=2;i<numRow s;i++){
          List<Integer> nums=list.get(i);
          nums.add(1);
          for (int j=1;j<i;j++){
