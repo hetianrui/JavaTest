@@ -1,0 +1,89 @@
+以下代码运行输出的是C 
+public class Person{ 
+private String name = "Person"; 
+int age=0;
+}
+public class Child extends Person{ 
+public String grade; 
+public static void main(String[] args){  
+Person p = new Child();  
+System.out.println(p.name);
+｝｝
+
+A输出：Person
+B没有输出
+C编译出错
+D运行出错
+
+解析：子类在继承父类时，会继承父类所有的结构（包括私有属性、构造方法、普通方法）
+
+隐式继承：父类中所有的私有域（私有属性、方法），子类不能直接使用
+
+显示继承：所有的非私有域属于显示继承，子类对象可以直接使用
+
+********************************如何访问父类的私有属性呢？********************
+首先子类是无法继承父类的私有属性，也无法直接访问父类的私有属性。
+
+但如果父类中有对私有属性的get和set的方法，而且是public的修饰的方法，
+
+子类在继承父类的同时，也继承了带有public修饰的set和get方法，所以可以通过以下方式子类可以访问到父类的私有属性。
+class Person{
+	private String name;
+	public Integer age;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	
+}
+ 
+class Student extends Person{
+	
+}
+ 
+public class Test {
+	public static void main(String[] args) {
+		Student s = new Student();
+		
+		s.age = 12;
+		s.setName("小明");
+		
+		String name = s.getName();
+		System.out.println("name = "+ name);
+		
+	｝
+｝
+以下程序的输出结果为：D
+class Base{    
+public Base(String s){        
+System.out.print("B");   
+}}
+public class Derived extends Base{    
+public Derived (String s) {        
+System.out.print("D");    
+}    
+public static void main(String[] args){   
+     new Derived("C");  
+  }}
+A BD
+B DB
+C C
+D 编译错误
+
+解析：因为Base没有默认的构造方法。或者在Derived的构造方法首行加上super（）
+调用父类无参构造时，子类构造方法首行super（）可以省略
+当父类不存在无参构造时，子类构造方法中必须使用super（方法参数）
+明确表示当前调用的是哪个父类构造，此时super不能省略，必须处于子类构造方法首行，此时子类不存在this构造器调用。
+
+
+
