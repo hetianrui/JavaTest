@@ -1,0 +1,13 @@
+多线程使用场景：
+对于执行时间比较长的多任务，可以考虑多线程
+单核cpu时，处理多个任务时，可能效率更低
+
+线程的中断：
+1.通过标志位来进行中断，默认为false
+2.通过stop（）进行停止（被废弃掉）
+3.Thread.interrupt（）//标志位=true，优势在于可以中断wait( )/join( )/sleep( ),如果进程处于wait( )/join( )/sleep( )，会抛出InterruptException异常
+                                  //并且重置标志位
+
+Thread.interrupted() 返回标志位的状态，重置标志位为false
+
+Thread.Isinterrupt（）只返回线程是否被中断
