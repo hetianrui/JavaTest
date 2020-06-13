@@ -1,0 +1,16 @@
+List接口下有三个常用子类：
+ArrayList，Vector，LinkedList
+List是一种引用，List类型的接口引用（Java语法）
+逻辑上是一种线性表
+线性表的元素类型是List<Integer>
+
+(java语法）List类型的接口引用
+元素类型是Integer类类型 的引用
+Integer是int的包装类
+List<Integer> nums=list.get(i);
+         nums.add(1);
+         for (int j=1;j<i;j++){
+             int num=list.get(i-1).get(j-1)
+                     +list.get(i-1).get(j);
+             nums.add(num);
+         }
