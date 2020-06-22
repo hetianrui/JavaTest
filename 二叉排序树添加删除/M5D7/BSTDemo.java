@@ -2,16 +2,16 @@ package M5D7;
 
 public class BSTDemo {
     public static void main(String[] args) {
-        Node head=new Node(7);
-        Node node1=new Node(3);
-        Node node2=new Node(10);
-        Node node3=new Node(1);
-        Node node4=new Node(5);
-        Node node5=new Node(9);
-        Node node6=new Node(12);
-        Node node7=new Node(2);
-        Node node=new Node(8);
-        CreateTree root=new CreateTree(head);
+        Node head = new Node(7);
+        Node node1 = new Node(3);
+        Node node2 = new Node(10);
+        Node node3 = new Node(1);
+        Node node4 = new Node(5);
+        Node node5 = new Node(9);
+        Node node6 = new Node(12);
+        Node node7 = new Node(2);
+        Node node = new Node(8);
+        CreateTree root = new CreateTree(head);
         root.add(node1);
         root.add(node2);
         root.add(node3);
@@ -31,91 +31,101 @@ public class BSTDemo {
 
     }
 }
-class CreateTree{
+
+class CreateTree {
     Node root;
-    public CreateTree(Node node){
-        this.root=node;
+
+    public CreateTree(Node node) {
+        this.root = node;
     }
-    public void add(Node node){
-        if(root==null){
-            root=node;
+
+    public void add(Node node) {
+        if (root == null) {
+            root = node;
             return;
-        }else {
+        } else {
             root.add(node);
         }
     }
-    public void delete(Node node){
-        if(root==null ){
+
+    public void delete(Node node) {
+        if (root == null) {
             return;
-        }else {
+        } else {
             root.delete(node);
         }
     }
-public Node Search(Node node){
-        if(root==null || node==null){
+
+    public Node Search(Node node) {
+        if (root == null || node == null) {
             return null;
-        }else {
-                return root.search(node);
-            }
+        } else {
+            return root.search(node);
         }
+    }
 
 
-    public Node SearchParent(Node node){
-        if(root==null){
+    public Node SearchParent(Node node) {
+        if (root == null) {
             return null;
-        }else {
+        } else {
             return root.searchParent(node);
         }
     }
 
     public void mid() {
-        if (root==null){
+        if (root == null) {
             System.out.println("Empty tree");
             return;
-        }else {
+        } else {
             root.mid();
         }
     }
- public void midSearch(){
-        if(root.left!=null&& root.right!=null){
-            System.out.println(root.left.midSearch(root.left,root.right));
+
+    public void midSearch() {
+        if (root.left != null && root.right != null) {
+            System.out.println(root.left.midSearch(root.left, root.right));
         }
- }
+    }
 }
-class Node{
+
+class Node {
     Node left;
     Node right;
     int val;
-    public Node(int val ){
-        this.val=val;
+
+    public Node(int val) {
+        this.val = val;
     }
-    public void mid(){
-        if(this.left!=null){
+
+    public void mid() {
+        if (this.left != null) {
             this.left.mid();
         }
         System.out.println(this);
-        if(this.right!=null){
+        if (this.right != null) {
             this.right.mid();
         }
     }
-    public Node midSearch(Node left,Node right){
-      if(this.val>left.val && this.val<right.val) {
-          return this;
-      }
-        Node temp=null;
-      if(this.left!=null){
-          temp=this.left.midSearch(left,right);
-      }
-      if(temp!=null){
-          return temp;
-      }
-      if( this.right!=null){
-            temp=this.right.midSearch(left,right);
-      }
-        if(temp!=null){
+
+    public Node midSearch(Node left, Node right) {
+        if (this.val > left.val && this.val < right.val) {
+            return this;
+        }
+        Node temp = null;
+        if (this.left != null) {
+            temp = this.left.midSearch(left, right);
+        }
+        if (temp != null) {
             return temp;
-        }else {
-          return null;
+        }
+        if (this.right != null) {
+            temp = this.right.midSearch(left, right);
+        }
+        if (temp != null) {
+            return temp;
+        } else {
+            return null;
         }
     }
 
@@ -129,13 +139,13 @@ class Node{
                 parent.right = null;
             }
         } else if (targetNode.left != null && targetNode.right != null) {//有两颗子树
-            Node temp=targetNode.left.midSearch(targetNode.left,targetNode.right);
-            Node tempparent=searchParent(temp);
-            targetNode.val=temp.val;
-            if(tempparent.left==temp){
-                tempparent.left=null;
-            }else {
-                tempparent.right=null;
+            Node temp = targetNode.left.midSearch(targetNode.left, targetNode.right);
+            Node tempparent = searchParent(temp);
+            targetNode.val = temp.val;
+            if (tempparent.left == temp) {
+                tempparent.left = null;
+            } else {
+                tempparent.right = null;
             }
         } else {//有一颗子树
             if (parent != null) {
@@ -160,12 +170,12 @@ class Node{
         }
 
     }
+
     /**
-     *
      * @param node 目标节点
      */
-    public Node searchParent(Node node){
-        if(node==null){
+    public Node searchParent(Node node) {
+        if (node == null) {
             return null;
         }
         if (this.val == node.val) {
@@ -178,7 +188,7 @@ class Node{
                 return this.left.searchParent(node);
             } else if (this.val <= node.val && this.right != null) {
                 return this.right.searchParent(node);
-            }else {
+            } else {
                 return null;
             }
 
@@ -187,45 +197,46 @@ class Node{
     }
 
     /**
-     *
      * @param node 目标节点
      * @return
      */
-    public Node search(Node node){
-        if(this.val==node.val){
+    public Node search(Node node) {
+        if (this.val == node.val) {
             return this;
         }
-        if((this.val>node.val && this.left==null) ||(this.val<node.val && this.right==null)){
+        if ((this.val > node.val && this.left == null) || (this.val < node.val && this.right == null)) {
             return null;
-        }else if(this.val>node.val && this.left!=null){
-              return this.left.search(node);
-        }else if(this.val<node.val && this.right!=null){
+        } else if (this.val > node.val && this.left != null) {
+            return this.left.search(node);
+        } else if (this.val < node.val && this.right != null) {
             return this.right.search(node);
-        }else {
+        } else {
             return null;
         }
 
     }
-   public void add(Node node){
-        if(node.val < this.val){
-            if(this.left==null){
-                this.left=node;
+
+    public void add(Node node) {
+        if (node.val < this.val) {
+            if (this.left == null) {
+                this.left = node;
                 return;
-            }else {
+            } else {
                 this.left.add(node);
             }
-        }else if(this.val <= node.val){
-            if(this.right==null){
-                this.right=node;
+        } else if (this.val <= node.val) {
+            if (this.right == null) {
+                this.right = node;
                 return;
-            }else {
+            } else {
                 this.right.add(node);
             }
         }
 
-   }
+    }
+
     @Override
-    public String toString(){
-        return "Node={id="+val+"}";
+    public String toString() {
+        return "Node={id=" + val + "}";
     }
 }
