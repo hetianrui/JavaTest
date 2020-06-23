@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class Test {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(7);
@@ -17,10 +16,10 @@ public class Test {
         root.BSTInsert(node5);
         root.BSTInsert(node6);
         root.BSTInsert(node7);
-        root.mid();
-        root.delete(node6);
+        //root.mid();
         //System.out.println(TreeNode.getParent(node7,root));
         System.out.println("************");
+        root.delete(node2);
         root.mid();
     }
 
@@ -55,7 +54,15 @@ class TreeNode {
         }
         return null;
     }
+    public TreeNode min(TreeNode root){
+        while (true){
+            if(root.left==null){
+                return root;
+            }
+            root=root.left;
+        }
 
+    }
     public void delete(TreeNode node) {
         if (node.left == null && node.right == null) {//删除叶子节点
             TreeNode temp = getParent(node, this);
@@ -65,7 +72,10 @@ class TreeNode {
                 temp.right = null;
             }
         } else if (node.left != null && node.right != null) {//删除有两个子树的节点
-
+            TreeNode minNode=min(node.right);
+            int a=minNode.val;
+            delete(minNode);
+            node.val=a;
         } else {//删除有一个子树的节点
             TreeNode temp = getParent(node, this);
             if (temp.left.val==node.val) {
