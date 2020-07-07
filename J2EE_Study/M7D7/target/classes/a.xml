@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 创建一个字符串对象，对象名为myName，通过newString("小比特")生成对象-->
+    <bean id="myName" class="java.lang.String" scope="prototype">
+        <constructor-arg value="小比特" />
+    </bean>
+    <bean id="d1" class="DuckShop.duck">
+        <property name="name" value="万家乐" />
+        <property name="age" value="20"/>
+    </bean>
+    <bean id="d2" class="DuckShop.duck">
+        <property name="name" value="徐家湾"/>
+        <property name="age" value="30"/>
+    </bean>
+    <bean id="ds1" class="DuckShop.ds">
+        <property name="name" value="北京烤鸭分店"></property>
+        <property name="ducks">
+            <list>
+                <ref bean="d1"></ref>
+                <ref bean="d2"></ref>
+            </list>
+        </property>
+    </bean>
+    <bean id="p1" class="DuckShop.Person">
+        <constructor-arg name="name" value="小明" />
+        <constructor-arg name="age" value="33" />
+    </bean>
+    <!--<bean id="duck" class="frank.duck">-->
+        <!--<constructor-arg value="maleduck"/>-->
+        <!--<property name="age" value="10" />-->
+    <!--</bean>-->
+    <!--<bean id="duck1" class="frank.duck">-->
+        <!--&lt;!&ndash;<property name="name" value="maleduck">&ndash;&gt;-->
+        <!--&lt;!&ndash;</property>&ndash;&gt;-->
+        <!--<constructor-arg value="femaleduck"/>-->
+        <!--<property name="age" value="15" />-->
+    <!--</bean>-->
+    <!--<bean id="duckshop" class="frank.duckshop">-->
+        <!--<property name="name" value="烤鸭店" />-->
+        <!--<property name="shop" >-->
+            <!--<list>-->
+                <!--<ref bean="duck"></ref>-->
+                <!--<ref bean="duck1"></ref>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;扫描base-package的包，所有子包都会进行扫描，包含Spring注解的类：-->
+                  <!--1.@Controller：做前端请求处理的类-->
+                  <!--2.@Service：业务处理的类-->
+                  <!--3.@Component：一般指组件-->
+                  <!--4.@Repository：一般数据操作的类-->
+                  <!--5.@Configuration：配置类-->
+    <!--&ndash;&gt;-->
+    <!--<context:component-scan base-package="scan"/>-->
+    <!--<bean id="duck6" class="frank.DuckFactory" factory-bean="duckshop" factory-method="creat"/>-->
+</beans>
