@@ -1,7 +1,7 @@
 
 
 
- class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -31,4 +31,4 @@ class Solution {
         }
         return (l.val == r.val) && mirror(l.left, r.right) && mirror(l.right, r.left);
     }
-}
+} 
